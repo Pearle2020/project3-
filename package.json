@@ -1,0 +1,19 @@
+{
+    "name": "electricity",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "watch": "nodemon --exec electron ."
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^18.1.0"
+    },
+    "dependencies": {
+        "nodemon": "^2.0.16"
+    }
+}

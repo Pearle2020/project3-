@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Calculator Desktop Application</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<style></style>
+
+<body>
+    <main>
+        
+        <h1 id="app-title">Electricity Bill Calculator </h1>
+        <div id="form-holder">
+            <div id="main-box">
+                <form action="" id="calculate-loan-form">
+                    <div class="form-item">
+                        <label for="loan-amount"><b>Enter Number of units</b></label>
+                        <input type="number" step="any" min="0" name="loan-amount" id="loan-amount" placeholder="xxxxx" class="input-item text-right" required>
+                    </div>
+                    <div class="form-item">
+                        <label for="loan-interest"><b>Enter The Billing Period(days)</b></label>
+                        <input type="number" step="any" name="loan-interest" id="loan-interest" placeholder="x" class="input-item text-right" required>
+                    </div>
+                    <div class="form-item">
+                        <button class="submit" id="submit" type="submit" onclick="calculate()">Calucate</button>
+                       
+                    </div>
+                </form>
+               
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,13 +1,13 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain, ipcRenderer } = require('electron');
 
 // The shell module allows us to manage files and URLs
 const shell = require('electron').shell;
 
 // Creating browser window
-let win;
+let mainWindow;
 
 const createWindow = () => {
-    win = new BrowserWindow({
+    mainWindow = new BrowserWindow({
         width: 850,
         height: 600,
         webPreferences: {
@@ -17,10 +17,10 @@ const createWindow = () => {
         }
     });
     // And load index.html file
-    win.loadFile('index.html');
+    mainWindow.loadFile('index.html');
 
     // Open development tools to help troubleshoot code
-    win.webContents.openDevTools();
+   // mainWindow.webContents.openDevTools();
 
     // Creating the app's menu
     var menu = Menu.buildFromTemplate([
@@ -67,34 +67,35 @@ app.whenReady().then(() => {
 // Creating new window
 let calculator;
 
-ipcMain.on('submit', event => {
+ipcMain.on('submit', (event, totalnoVAT, totalwithVAT) => {
+
     calculator = new BrowserWindow({
-        width: 500,
-        height: 200,
-        frame: false, //removes top toolbar
+        width: 600, //500
+        height: 600, //200
+        frame: true, //removes top toolbar
         transparent: true,
         alwaysOnTop: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            enableRemoteModule: true
+         //   enableRemoteModule: true
         }
-    });
+    }); calculator.setMenu(null);
     // Loading add.html file into new window
-    calculator.loadFile('src/calculator.html');
+    calculator.loadFile('ebill.html');
 
-    //addWindowEUR.webContents.openDevTools();
+    calculator.webContents.send('gotTotal', totalnoVAT, totalwithVAT);
 
-    calculator.on('closed', () => {
-        calculator = null;
-    });
+    // calculator.webContents.openDevTools();
+    // //addWindowEUR.webContents.openDevTools();
+
+    calculator.on('closed', () => (calculator = null));
 });
 
-// Closing window event
-ipcMain.on('close-window', event => {
+// // Closing window event
+// ipcMain.on('close-window', event => {
 
-    //close the window object
-    calculator.close();
+//     //close the window object
+//     calculator.close();
 
-})
-
+// })

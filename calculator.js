@@ -1,5 +1,8 @@
+//Modules
 const electron = require('electron');
 const { ipcRenderer } = electron
+
+const ebillCalcForm = document.getElementById('calculate-ebill-form')
 // BTC EUR Section
 
 // Function that will fetch the current BTC price from an API, display it to screen and compare to target price
@@ -8,32 +11,26 @@ const { ipcRenderer } = electron
 
 
 // Clicking on the button will trigger the ipcRenderer to send a message to ipcMain to open new window
-document.getElementById('submit').addEventListener('click', event => {
-    ipcRenderer.send('submit');
-});
-const loanForm = document.getElementById('calculate-loan-form')
-loanForm.addEventListener('submit', function (e) {
+
+ebillCalcForm.addEventListener('submit', (e) => {
+
     e.preventDefault()
-    start_loader();
-    const principalAmount = document.getElementById('loan-amount').value;
-    const interest = document.getElementById('loan-interest').value;
-    var i = 0.20 
-    var t= 0.04,
-    total = 0,
-    total = (parseFloat(principalAmount) * i) +(parseFloat(interest)*t);
-  
-    setTimeout(() => {
-        document.getElementById('principal').textContent = parseFloat(total)+'€';
 
-        document.getElementById('result').style.display = 'table';
-        document.getElementById('reset-btn').style.display = 'block';
-        end_loader()
-    }, 500)
+    const nUnints = document.getElementById('number-of-units').value;
+    const billingPeriod = document.getElementById('billing-period').value;
+    let i = 0.20; //20 cents per unit
+    let t = 0.04; //standing charge, 4 cents per day
+    let vat = 13.5;
+    let totalnoVAT = 0;
+    let totalwithVAT = 0;
+    totalnoVAT = (parseFloat(nUnints) * i) + (parseFloat(billingPeriod) * t);
+    // rounds the number to the 2nd digit after the decimal, we can multiply the number by 100, call the rounding function and then divide it back.
+    totalnoVAT = Math.round(totalnoVAT * 100) / 100; // example: 1.23456  * 100 -> 123.456 (math.round) -> 123 /100 -> 1.23 
+    console.log(totalnoVAT);
+    // and here we are doing it again
+    totalwithVAT = (totalnoVAT + (totalnoVAT * vat / 100));
+    totalwithVAT = Math.round(totalwithVAT * 100) / 100;
+    console.log(totalwithVAT);
+    ipcRenderer.send('submit', totalnoVAT, totalwithVAT);
 
-})
-
-// Receives targetPrice and updates the index.html file
-ipcRenderer.on('submit', (event, arg) => {
-   
-    principal = '€' + total;
 })

@@ -7,27 +7,34 @@
     <title> Calculator Desktop Application</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
-        
+
         <h1 id="app-title">Electricity Bill Calculator </h1>
+        <div id="students">
+            <h2> Bekezhan Abdykarimov 2020297</h2>
+            <h2> </h2>
+        </div>
         <div id="form-holder">
             <div id="main-box">
                 <form action="" id="calculate-ebill-form">
                     <div class="form-item">
                         <label for="number-of-units"><b>Enter Number of units</b></label>
-                        <input type="number" step="any" min="0" name="number-of-units" id="number-of-units" placeholder="xxxx" class="input-item text-right" required>
+                        <input type="number" step="any" min="0" name="number-of-units" id="number-of-units"
+                            placeholder="xxxx" class="input-item text-right" required>
                     </div>
                     <div class="form-item">
                         <label for="billing-period"><b>Enter The Billing Period(days)</b></label>
-                        <input type="number" step="any" min="0" name="billing-period" id="billing-period" placeholder="x" class="input-item text-right" required>
+                        <input type="number" step="any" min="0" name="billing-period" id="billing-period"
+                            placeholder="x" class="input-item text-right" required>
                     </div>
                     <div class="form-item">
                         <button class="submit" id="submit" type="submit">Calculate</button>
-                       
+
                     </div>
                 </form>
-               
+
             </div>
         </div>
     </main>

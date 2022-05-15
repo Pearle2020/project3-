@@ -31,6 +31,15 @@ main {
     text-shadow: 3px 3px 8px #4b889f;
 }
 
+#students {
+    margin: 1rem 4rem;
+    text-align: left;
+    font-family: arial;
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 3px 3px 8px #4b889f;
+}
+
 #form-holder {
     min-height: 20vh;
     width: 100%;

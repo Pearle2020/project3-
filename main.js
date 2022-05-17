@@ -70,8 +70,8 @@ let calculator;
 ipcMain.on('submit', (event, totalnoVAT, totalwithVAT) => {
 
     calculator = new BrowserWindow({
-        width: 600, //500
-        height: 600, //200
+        width: 490, //500
+        height: 300, //200
         frame: true, //removes top toolbar
         transparent: true,
         alwaysOnTop: true,

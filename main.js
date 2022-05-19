@@ -9,7 +9,7 @@ let mainWindow;
 const createWindow = () => {
     mainWindow = new BrowserWindow({
         width: 850,
-        height: 600,
+        height: 700,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -70,8 +70,8 @@ let calculator;
 ipcMain.on('submit', (event, totalnoVAT, totalwithVAT) => {
 
     calculator = new BrowserWindow({
-        width: 490, //500
-        height: 300, //200
+        width: 500, //500
+        height: 350, //200
         frame: true, //removes top toolbar
         transparent: true,
         alwaysOnTop: true,
@@ -81,19 +81,19 @@ ipcMain.on('submit', (event, totalnoVAT, totalwithVAT) => {
          //   enableRemoteModule: true
         }
     }); calculator.setMenu(null);
-    // Loading add.html file into new window
+    // Loading ebill.html file into new window
     calculator.loadFile('ebill.html');
 
     calculator.webContents.send('gotTotal', totalnoVAT, totalwithVAT);
 
     // calculator.webContents.openDevTools();
-    // //addWindowEUR.webContents.openDevTools();
+    
 
     calculator.on('closed', () => (calculator = null));
 });
 
 // // Closing window event
-// ipcMain.on('close-window', event => {
+
 
 //     //close the window object
 //     calculator.close();

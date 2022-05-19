@@ -9,6 +9,17 @@ body {
 body * {
     font-family: 'Arial', Tahoma, Geneva, Verdana, sans-serif, cursive;
 }
+h2{
+    color:#f4abec;
+}
+img {
+    height: 25%;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+   
+
+}
 
 main {
     margin: unset !important;
@@ -28,7 +39,7 @@ main {
     font-family: arial;
     font-size: 2rem;
     color: #fff;
-    text-shadow: 3px 3px 8px #4b889f;
+    text-shadow: 3px 3px 8px #b960b3;
 }
 
 #students {
@@ -37,7 +48,7 @@ main {
     font-family: arial;
     font-size: 1rem;
     color: #fff;
-    text-shadow: 3px 3px 8px #4b889f;
+    text-shadow: 3px 3px 8px #c867be;
 }
 
 #form-holder {

@@ -101,9 +101,9 @@ form {
 }
 
 button#submit {
-    background-color: #57abfb;
+    background-color: #f4abec;
     font-weight: 700;
-    color: #fff;
+    color: rgb(142, 57, 132);
 }
 
 .submit:active {
@@ -125,7 +125,7 @@ button#submit {
     
     padding: 0.5em 1em;
     border-radius: 0.5em;
-
+    color: #0e0e0f;
     width: 50vw;
     min-height: 40vh;
     background-color: rgb(224, 184, 246);
